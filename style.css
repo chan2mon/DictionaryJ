@@ -1,0 +1,238 @@
+:root {
+    --bg-color: #f5f5f5;
+    --container-bg: #fff;
+    --text-color: #333;
+    --card-bg: #f9f9f9;
+    --primary-color: #0078d4;
+    --highlight: #e3f2fd;
+}
+
+body.dark {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #eee;
+    --card-bg: #2a2a2a;
+    --primary-color: #4fc3f7;
+    --highlight: #1a237e;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Container */
+.container {
+    background: var(--container-bg);
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 95%;
+    max-width: 750px;
+    margin-top: 40px;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 28px;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+/* Theme toggle */
+.theme-toggle button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.theme-toggle button:hover {
+    opacity: 0.85;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.tab-button {
+    padding: 10px 18px;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    margin-right: 5px;
+    transition: 0.3s;
+}
+
+.tab-button.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Tab content */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Search Box */
+#searchBox {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Autocomplete */
+.autocomplete-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-height: 150px;
+    overflow-y: auto;
+    background: var(--container-bg);
+}
+
+.autocomplete-items li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.autocomplete-items li:hover {
+    background-color: var(--highlight);
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.word {
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.pos {
+    font-style: italic;
+    color: #777;
+    margin-left: 5px;
+}
+
+/* Glossary */
+.glossary-section {
+    margin-bottom: 30px;
+}
+
+.letter-title {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Alphabet navigation */
+.alphabet-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 8px;
+}
+.alphabet-nav button {
+    border: none;
+    background: var(--card-bg);
+    color: var(--primary-color);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.alphabet-nav button:hover {
+    background: var(--highlight);
+}
+
+/* Elegant Search Results */
+.result-card {
+    background: linear-gradient(135deg, var(--highlight), var(--container-bg));
+    border-left: 6px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideFadeIn 0.5s ease forwards;
+}
+
+.result-card .word {
+    font-size: 20px;
+    font-weight: 700;
+}
+.result-card .definition {
+    color: #444;
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    font-size: 14px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
